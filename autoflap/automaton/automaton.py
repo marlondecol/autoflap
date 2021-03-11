@@ -17,7 +17,7 @@ import csv
 import errno
 import math
 import os
-from numbers import Integral
+from numbers import Integral, Real
 from typing import List, Optional, Text
 from xml.etree import ElementTree as ET
 
@@ -142,8 +142,8 @@ class Automaton:
             self,
             filename: Text,
             dirname: Optional[Text] = c.DEFAULT_OUTPUT_DIR,
-            drawing_radius_factor: Integral = c.DEFAULT_DRAWING_RADIUS_FACTOR,
-            drawing_margin: Integral = c.DEFAULT_DRAWING_MARGIN) -> Text:
+            drawing_radius_factor: Real = c.DEFAULT_DRAWING_RADIUS_FACTOR,
+            drawing_margin: Real = c.DEFAULT_DRAWING_MARGIN) -> Text:
         """
         Build the JFLAP design of this automaton, which content is based
         on the XML format, and write it in a JFLAP design file.
@@ -156,12 +156,12 @@ class Automaton:
             The directory where the output file must be written. If
             `None`, then the directory of `filename` will be used.
             Defaults to `DEFAULT_OUTPUT_DIR`.
-        drawing_radius_factor : Integral, optional
+        drawing_radius_factor : Real, optional
             Circle radius factor when designating the states positions.
             The radius is equal to this factor times the number of
             states of this automaton. Defaults to
             `DEFAULT_DRAWING_RADIUS_FACTOR`.
-        drawing_margin : Integral, optional
+        drawing_margin : Real, optional
             Distance from the left and top margins from which the states
             must be positioned, in pixels. Defaults to
             `DEFAULT_DRAWING_MARGIN`.
